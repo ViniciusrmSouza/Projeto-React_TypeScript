@@ -1,4 +1,5 @@
 import React from "react";
+import Item from "./Item";
 import style from './List.module.scss';
 
 function List(){
@@ -13,17 +14,18 @@ function List(){
     }]
 
     return(
-        <aside className={style.listaTarefas}>
-            <h2> Studies of day</h2>
-            <ul>
-                {tasks.map((item, index) =>(
-                    <li key={index} className={style.item}>
-                        <h3>{item.task}</h3>
-                        <span>{item.time}</span>
-                    </li>
-                ))}
-            </ul>
-        </aside>
+    <aside className={style.listaTarefas}>
+        <h2> Studies of day</h2>
+        <ul>
+            {tasks.map((item, index) =>(
+                <Item 
+                    key={index}//Forma de linkar o li com o dom
+                    task={item.task}
+                    time={item.time}
+                />
+            ))}
+        </ul>
+    </aside>
     )
 }
 
