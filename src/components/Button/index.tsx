@@ -1,15 +1,16 @@
 import React from "react";
 import style from './Button.module.scss';
 
-class Button extends React.Component<{text : string, type?: "button" | "submit" | "reset" | undefined}>{
-    render(){
-        const { type = "button" } = this.props;
-        return(
-            <button type={type} className={style.botao}>
-                {this.props.text}
-            </button>
-        )
-    }
+interface Props{
+    text? : string,
+    type?: "button" | "submit" | "reset" | undefined, 
+    onClick?: () => void
 }
 
-export default Button;
+export default function Button({onClick, type, text} : Props){
+    return(
+        <button onClick={onClick} type={type} className={style.botao}>
+            {text}
+        </button>   
+    )
+}
